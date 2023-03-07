@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%-include('partials/encabezado.html');%>
+    <section>
+        <div class="sec">
+            <center>
+                <div class="formu">
+                    <form action="/salida" method="post">
+                        <div class="row">
+                            <label for="">Numero de Recibo:  </label>
+                            <input type="number" name="num" id="num" value="<%=num%>">
+                        </div>
+                        <div class="row">
+                            <label for="">Nombre:  </label>
+                            <input type="text" name="nombre" id="nombre" value="<%=nombre%>">
+                        </div>
+                        <div class="row">
+                            <label for="">Domicilio:  </label>
+                            <input type="text"  name="domicilio" id="domicilio" value="<%=domicilio%>">
+                        </div>
+                        <div class="row">
+                            <label for="">Tipo de Serivcio:  </label>
+                            <Select name="tipo" id="tipo">
+                                <option value="1">Domestico</option>
+                                <option value="2">Comercial</option>
+                                <option value="3">Indusreial</option>
+                            </Select>
+                        </div>
+                        <div class="row">
+                            <label for="">KiloWatts Consumidos:  </label>
+                            <input type="number" name="kw" value="<%=kw%>">
+                        </div>
+                        
+                            <button type="submit">Enviar Informacion</button>
+                            </form><button onclick="Limpiar()">Limpiar</button>
+                </div>   
+            </center>
+        </div>
+        
+    </section>
+    <%-include('partials/pie.html');%>
+</body>
+<style>
+body{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+section{
+    height: 321px;
+    display: flex;
+
+    
+}
+nav{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: black;
+}
+nav a{
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+select{
+    width: 111px;
+}
+.sec{
+    width: 100%;
+    height: 100%;
+    background-color: khaki;
+
+}
+.formu{
+    display: flex;
+    flex-direction: column;
+    width:  472px;
+    height: 287px;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    
+}
+.row{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+.row input{
+    margin-left: 20px;
+}
+.row select{
+    margin-left: 11px;
+}
+.encabezado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:aquamarine;
+    margin: 0px;
+    width: 100%;
+    height: 300px;
+}
+
+.encabezado img{
+    height: 145px;
+    width: 315px;
+    margin: 13px;
+}
+.respuesta{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: khaki;
+}
+table{
+    width: 100%;
+    height: 300px;
+}
+.cont1{
+    width: 50px;
+    height: 100%;
+}
+th{
+    font-weight:normal;
+}
+.th1{
+    width: 15%;
+}
+.th2{
+    width: 25%;
+}
+.th3{
+    width: 30%;
+}
+.th4{
+    width: 30%;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+    background-color: palevioletred;
+}
+</style>
+<script>
+    function Limpiar(){
+        document.getElementById("num").value="";
+        document.getElementById("nombre").value="";
+        document.getElementById("domicilio").value="";
+        document.getElementById("tipo").selectedIndex = 0;
+        document.getElementById("kw").value="";
+    }
+</script>
+</html>
+
