@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('partials/encabezado.html');%>
+
+<% 
+var subtotal = 0;
+var descuento = 0
+var impuesto = 0;
+var totalpag = 0;
+var preckw = 0;
+var servi = "";
+
+if(tipo == 1){
+    servi="Domestico";
+    preckw = 1.08;
+    subtotal = kw * preckw;
+}else if(tipo == 2){
+    servi="Comercial";
+    preckw = 2.5;
+    subtotal = kw * preckw;
+}else if(tipo == 3){
+    servi="Industrial";
+    preckw = 3;
+    subtotal = kw * preckw;
+}
+
+if(kw <= 1000){
+    impuesto = subtotal * .16;
+    descuento = subtotal * .10;
+    totalpag = (subtotal + impuesto) - descuento;
+} else if(kw >= 1000 || kw <= 10000){
+    impuesto = subtotal * .16;
+    descuento = subtotal * .10;
+    totalpag = (subtotal + impuesto) - descuento;
+}else if(kw > 1000){
+    impuesto = subtotal * .16;
+    descuento = subtotal * .10;
+    totalpag = (subtotal + impuesto) - descuento;
+}
+%>
+<section>
+        <div class="respuesta">
+            <table class="tbl">
+                <tr>
+                    <th class="th1" style="font-weight:bold;">Nombre</th>
+                    <th class="th2" style="font-weight:bold;">Tipo de Serivcio</th>
+                    <th class="th3" style="font-weight:bold;">Kilowatts Consumidos</th>
+                    <th class="th4" style="font-weight:bold;">Consto por Kilowatts</th>
+                </tr>
+                <tr>
+                    <th class="th1"><%=nombre%></th>
+                    <th class="th2"><%=servi%></th>
+                    <th class="th3"><%=kw%></th>
+                    <th class="th4"><%=preckw%></th>
+                </tr>
+                <tr>
+                    <th class="th1"></th>
+                    <th class="th2"></th>
+                    <th class="th3">Subtotal</th>
+                    <th class="th4"><%=subtotal%></th>
+                </tr>
+                <tr>
+                    <th class="th1"></th>
+                    <th class="th2"></th>
+                    <th class="th3">Impuesto</th>
+                    <th class="th4"><%=impuesto%></th>
+                </tr>
+                <tr>
+                    <th class="th1"></th>
+                    <th class="th2"></th>
+                    <th class="th3">Descuento</th>
+                    <th class="th4"><%=descuento%></th>
+                </tr>
+                <tr>
+                    <th class="th1"></th>
+                    <th class="th2"></th>
+                    <th class="th3" style="font-weight:bold;">Total a Pagar</th>
+                    <th class="th4" style="font-weight:bold;"><%=totalpag%></th>
+                </tr>
+            </table>
+        </div>  
+</section>
+<%-include('partials/pie.html');%>
+</body>
+<style>
+body{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+section{
+    height: 321px;
+    display: flex;
+
+    
+}
+nav{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: black;
+}
+nav a{
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+.formu{
+    display: flex;
+    flex-direction: column;
+    
+}
+.encabezado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:aquamarine;
+    margin: 0px;
+    width: 100%;
+    height: 300px;
+}
+
+.encabezado img{
+    height: 145px;
+    width: 315px;
+    margin: 13px;
+}
+.respuesta{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: khaki;
+}
+table{
+    width: 100%;
+    height: 300px;
+}
+.cont1{
+    width: 50px;
+    height: 100%;
+}
+th{
+    font-weight:normal;
+}
+.th1{
+    width: 15%;
+}
+.th2{
+    width: 25%;
+}
+.th3{
+    width: 30%;
+}
+.th4{
+    width: 30%;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+    background-color: palevioletred;
+}
+</style>
+</html>
